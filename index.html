@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buzzer Room Selector</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Internet Buzzer System</h1>
+        <form autocomplete="off" action="buttonPage.html" method="GET">
+            <p class="label">Room ID:</p>
+            <input type="text" autocapitalize="characters" id="room-id" name="roomid" maxlength="5" onkeyup="checkNameInputLength()"><br>
+
+            <p class="label">Enter your name:</p>
+            <input type="text" autocapitalize="off" id="nameInput" name="username" onkeyup="checkNameInputLength()"><br>
+
+            <input type="submit" id="submit" value="Connect!">
+        </form>
+
+        <!--<script src="index_func.js"></script>-->
+    </body>
+</html>
