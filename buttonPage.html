@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="header-title">Room Code</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1 id="room-code-header">Room Code</h1>
+
+        <input type="button" id="buzzer" value="Buzz In!" onclick="console.log('bonk')"><br>
+        <p>Click the button to buzz in (or just press the space bar if you like!)</p>
+
+        <script src="buttonPage.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+            
+            function connectToRoomID() {
+                var pairs = new URLSearchParams(location.search);
+
+                socket.emit("clientjoinroom", pairs.get("roomid").toUpperCase());
+
+                document.getElementById("header-title").innerHTML = "Buzzer Room " + pairs.get("roomid").toUpperCase();
+                document.getElementById("room-code-header").innerHTML = "Room " + pairs.get("roomid").toUpperCase();
+            }
+
+            // ---------BEGIN CODING---------
+
+            connectToRoomID();
+        </script>
+    </body>
+</html>
