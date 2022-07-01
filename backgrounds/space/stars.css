@@ -1,0 +1,59 @@
+:root {
+    --animation-time: 10s;
+    --star-size: 100px;
+    
+    --comet-start-x: 0px;
+    --comet-start-y: 0px;
+    --comet-end-x: 100px;
+    --comet-end-y: 100px;
+    --comet-rotation: 0deg;
+}
+
+html {
+    background-color: black;
+}
+
+@keyframes star-blink {
+    0% {height: 0%; width: 0%; opacity: 0%;}
+    50% {height: 100%; width: 100%; opacity: 100%;}
+    100% {height: 0%; width: 0%; opacity: 0%;}
+}
+
+.star {
+    width: 0%;
+    height: 0%;
+    border-radius: 50%;
+    background-image: radial-gradient(white 15%, rgba(255, 255, 0, 0) 90%);
+    animation-name: star-blink;
+    animation-duration: var(--animation-time);
+    margin: 0;
+}
+
+.star-container {
+    height: var(--star-size);
+    width: var(--star-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes comet-shoot {
+    0% {top: var(--comet-start-y); left: var(--comet-start-x);}
+    100% {top: var(--comet-end-y); left: var(--comet-end-x);}
+}
+
+.comet {
+    height: 4px;
+    width: 60px;
+    background-color: white;
+    rotate: 0deg;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 35%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 35%;
+
+    position: absolute;
+    animation-name: comet-shoot;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
