@@ -81,8 +81,8 @@ function shootComet() {
         comet.style.setProperty('--comet-start-y', cometStartY + "px");
         comet.style.setProperty('--comet-end-x', cometEndX + "px");
         comet.style.setProperty('--comet-end-y', cometEndY + "px");
-        comet.style.rotate = angle + "deg";
-
+        comet.style.setProperty('-webkit-transform', "rotate(" + angle + "deg)");
+        comet.style.setProperty('transform', 'rotate(' + angle + 'deg)');
         comet.onanimationend = function(event) {
             comet.remove();
             shootComet();
